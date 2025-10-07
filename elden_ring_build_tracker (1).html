@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free Elden Ring Build Tracker – Manage your stats, items, and equipment easily online. Save your progress locally and plan your builds efficiently." />
+  <meta name="keywords" content="Elden Ring build tracker, Elden Ring stat planner, Elden Ring equipment manager, FromSoftware tools" />
+  <meta name="author" content="GameTrack Labs" />
+  <title>Elden Ring Build Tracker | GameTrack Labs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+
+  <!-- Cookie Consent Banner -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('cookieConsent')) {
+        const banner = document.createElement('div');
+        banner.className = 'fixed bottom-0 inset-x-0 bg-gray-800 text-gray-200 p-4 flex flex-col md:flex-row items-center justify-between shadow-lg';
+        banner.innerHTML = `
+          <span class='mb-2 md:mb-0'>We use cookies to personalize content and analyze traffic. By continuing to use this site, you consent to our cookies.</span>
+          <button id='acceptCookies' class='bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 rounded'>Accept</button>
+        `;
+        document.body.appendChild(banner);
+        document.getElementById('acceptCookies').onclick = function() {
+          localStorage.setItem('cookieConsent', 'true');
+          banner.remove();
+        };
+      }
+    });
+  </script>
+
+  <script>
+    // Save and Load data from localStorage
+    function saveData() {
+      const data = {
+        name: document.getElementById('name').value,
+        level: document.getElementById('level').value,
+        vigor: document.getElementById('vigor').value,
+        mind: document.getElementById('mind').value,
+        endurance: document.getElementById('endurance').value,
+        strength: document.getElementById('strength').value,
+        dexterity: document.getElementById('dexterity').value,
+        intelligence: document.getElementById('intelligence').value,
+        faith: document.getElementById('faith').value,
+        arcane: document.getElementById('arcane').value,
+        weapon: document.getElementById('weapon').value,
+        armor: document.getElementById('armor').value,
+        talismans: document.getElementById('talismans').value,
+        notes: document.getElementById('notes').value
+      };
+      localStorage.setItem('eldenRingBuild', JSON.stringify(data));
+      alert('Build saved!');
+    }
+
+    function loadData() {
+      const data = JSON.parse(localStorage.getItem('eldenRingBuild'));
+      if (!data) return;
+      for (const key in data) {
+        if (document.getElementById(key)) {
+          document.getElementById(key).value = data[key];
+        }
+      }
+    }
+
+    window.onload = loadData;
+  </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
+  <header class="bg-yellow-600 p-4 text-center text-2xl font-bold shadow-lg">
+    Elden Ring Build Tracker
+  </header>
+
+  <!-- Top Ad Banner -->
+  <div class="my-4 text-center">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <main class="max-w-3xl mx-auto p-6 space-y-6">
+    <section class="bg-gray-800 p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Character Info</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <label class="flex flex-col">Name <input id="name" class="bg-gray-700 p-2 rounded" placeholder="Tarnished" /></label>
+        <label class="flex flex-col">Level <input type="number" id="level" class="bg-gray-700 p-2 rounded" /></label>
+      </div>
+    </section>
+
+    <section class="bg-gray-800 p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Attributes</h2>
+      <div class="grid grid-cols-3 gap-3">
+        <label class="flex flex-col">Vigor <input type="number" id="vigor" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Mind <input type="number" id="mind" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Endurance <input type="number" id="endurance" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Strength <input type="number" id="strength" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Dexterity <input type="number" id="dexterity" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Intelligence <input type="number" id="intelligence" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Faith <input type="number" id="faith" class="bg-gray-700 p-2 rounded" /></label>
+        <label class="flex flex-col">Arcane <input type="number" id="arcane" class="bg-gray-700 p-2 rounded" /></label>
+      </div>
+    </section>
+
+    <!-- Mid Page Ad -->
+    <div class="my-4 text-center">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="bg-gray-800 p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Equipment</h2>
+      <label class="flex flex-col mb-2">Weapon <input id="weapon" class="bg-gray-700 p-2 rounded" placeholder="Rivers of Blood" /></label>
+      <label class="flex flex-col mb-2">Armor <input id="armor" class="bg-gray-700 p-2 rounded" placeholder="Bull-Goat Set" /></label>
+      <label class="flex flex-col">Talismans <input id="talismans" class="bg-gray-700 p-2 rounded" placeholder="Radagon's Scarseal" /></label>
+    </section>
+
+    <section class="bg-gray-800 p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Notes</h2>
+      <textarea id="notes" rows="4" class="w-full bg-gray-700 p-2 rounded" placeholder="Strategy, spell combos, boss notes..." ></textarea>
+    </section>
+
+    <div class="text-center">
+      <button onclick="saveData()" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded font-semibold shadow-md transition">Save Build</button>
+    </div>
+  </main>
+
+  <!-- Bottom Ad Banner -->
+  <div class="my-8 text-center">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <footer class="text-center text-sm text-gray-500 mt-10 p-4 border-t border-gray-700">
+    © 2025 GameTrack Labs | Elden Ring is a trademark of FromSoftware and Bandai Namco.<br>
+    <a href="/privacy-policy" class="underline text-gray-400 hover:text-gray-200">Privacy Policy</a> | 
+    <a href="/contact" class="underline text-gray-400 hover:text-gray-200">Contact</a>
+  </footer>
+</body>
+</html>
